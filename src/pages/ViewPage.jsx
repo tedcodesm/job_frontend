@@ -79,9 +79,9 @@ const ViewPage = () => {
   }, [name]);
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-screen flex flex-col">
       <Navbar />
-      <div className="flex flex-row items- bg-gray-200 sm:px-16 px-4 md:py-16 gap-10 py-4 ">
+      <div className="flex flex-row items- lg:h-screen bg-gray-200 sm:px-16 px-4 md:py-16 gap-10 py-4 ">
         <form
           method="post"
           onSubmit={handleapply}
@@ -92,7 +92,7 @@ const ViewPage = () => {
           <div className="w-full items-center flex justify-center rounded-t-lg  bg-blue-400 h-12 text-white">
             <h1 className="font-semibold text-center text-lg">Fill in the details below </h1>
           </div>
-          <div className="flex flex-col w-full space-y-4 py-4 px-4">
+          <div className="flex flex-col w-full space-y-4 py-4 lg:py-8 px-4">
             <div className="flex flex-row items-center gap-4 grid grid-cols-3">
               <select
                 value={gender}
@@ -121,7 +121,7 @@ const ViewPage = () => {
                 className="w-full h-10 border  border-blue-100 rounded-lg ps-4"
               />
             </div>
-            <div className="flex flex-row items-center py-4 gap-4 grid grid-cols-2 w-full">
+            <div className="flex flex-row items-center py-4 lg:py-8 gap-4 grid grid-cols-2 w-full">
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -139,7 +139,7 @@ const ViewPage = () => {
             </div>
             <label
               htmlFor="dropzone-file"
-              className="flex items-center justify-center w-full h-20 px-4 py-1 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-gray-50"
+              className="flex items-center justify-center w-full h-20 lg:h-40 px-4 py-1 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-gray-50"
             >
               <div className="flex flex-row space-x-4 items-center justify-center">
                 <svg

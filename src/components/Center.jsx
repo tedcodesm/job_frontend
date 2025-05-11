@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import * as Icon from "react-feather";
 import { Link } from "react-router-dom";
+import { formatMessageDateTime } from "../lib/utils";
 
 const jobTypes = ["All", "Full time", "Part time", "Freelance", "Internship"];
 
@@ -9,6 +10,8 @@ const Center = () => {
   const [job, setJob] = useState([]);
   const [selectedJobType, setSelectedJobType] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+
+  
 
   const GetJobname = async (name) => {
     try {
@@ -101,8 +104,8 @@ const Center = () => {
                 <p className="text-neutral-500 font-semibold">{jobo.joblocation}</p>
                 <div className="flex flex w-full items-center py-4 pr-4 justify-between">
                   <div className="flex flex-col font-semibold">
-                    <p className="text-neutral-500">Senior Software Engineer</p>
-                    <p className="text-neutral-900 max-w-[500px]">{jobo.description}</p>
+                    <p className="text-neutral-500">Description</p>
+                    <p className="text-neutral-900 max-w-[150px] truncate">{jobo.description}</p>
                   </div>
                   <div className="flex flex-col font-semibold">
                     <p className="text-neutral-500">Jobtype</p>
@@ -116,7 +119,7 @@ const Center = () => {
               </div>
             </Link>
             <div className="flex flex-row justify-between items-center py-2">
-              <h1 className="text-neutral-400">Posted 17min ago </h1>
+              <h1 className="text-neutral-400">Posted : {formatMessageDateTime(jobo.createdAt)} </h1>
               <h1 className="text-neutral-400 space-x-2 flex flex-row items-center">
                 <Icon.Bookmark size={24} color="gray" /> Save job{" "}
               </h1>
